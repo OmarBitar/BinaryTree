@@ -38,6 +38,12 @@ public class Main {
         }
     }
 
+    public static boolean treeIncludes(Node node, Object target) {
+        if(node == null) return false;
+        if(node.data == target) return true;
+        return treeIncludes(node.left,target) || treeIncludes(node.right,target);
+    }
+
     public static void main(String[] args) {
         Node a = new Node('a');
         Node b = new Node('b');
@@ -53,5 +59,7 @@ public class Main {
         c.right = f;
 
         depthFirst(a);
+
+        System.out.println(treeIncludes(a,'e'));
     }
 }
