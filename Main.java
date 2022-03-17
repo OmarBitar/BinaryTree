@@ -1,5 +1,7 @@
 package com.sirKnight;
 
+import java.util.ArrayDeque;
+import java.util.Queue;
 import java.util.Stack;
 
 public class Main {
@@ -24,6 +26,18 @@ public class Main {
         }
     }
 
+    public static void breadthFirst(Node node) {
+        Queue<Node> nodesToVisit = new ArrayDeque<>();
+        Node currentNode = node;
+        nodesToVisit.add(currentNode);
+        while (!nodesToVisit.isEmpty()) {
+            currentNode = nodesToVisit.remove();
+            System.out.println(currentNode.data);
+            if(currentNode.left != null) nodesToVisit.add(currentNode.left);
+            if(currentNode.right != null) nodesToVisit.add(currentNode.right);
+        }
+    }
+
     public static void main(String[] args) {
         Node a = new Node('a');
         Node b = new Node('b');
@@ -38,6 +52,6 @@ public class Main {
         b.right = e;
         c.right = f;
 
-        depthFirst(a);
+        breadthFirst(a);
     }
 }
