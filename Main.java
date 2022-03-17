@@ -19,10 +19,10 @@ public class Main {
         Node currentNode = node;
         nodesToVisit.push(currentNode);
         while (nodesToVisit.size()!=0) {
+            currentNode = nodesToVisit.pop();
             System.out.println(currentNode.data);
             if(currentNode.right != null) nodesToVisit.push(currentNode.right);
             if(currentNode.left != null) nodesToVisit.push(currentNode.left);
-            currentNode = nodesToVisit.pop();
         }
     }
 
@@ -52,6 +52,6 @@ public class Main {
         b.right = e;
         c.right = f;
 
-        breadthFirst(a);
+        depthFirst(a);
     }
 }
